@@ -1,0 +1,32 @@
+.timer {
+    position: relative;
+    font-size: 30px;
+    text-align: center;
+    P {
+        width: fit-content;
+        margin: 0 auto;
+        left: 50%;
+        width: 98px;
+        text-align: left;
+        font-family: digital-7;
+    }
+    button {
+        font-family: digital-7;
+        font-size: 20px;
+        margin: 0 5px;
+        width: 60px;
+        border-radius: 5px;
+        cursor: pointer;
+        outline: none;
+    }
+    &-control {
+        &__start {
+            background-color: green;
+            color: #fff;
+        }
+        &__stop {
+            color: #fff;
+            background-color: red;
+        }
+    }
+}

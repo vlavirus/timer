@@ -1,0 +1,12 @@
+<div class="timer">
+    <p >{{hour | number: '2.0'}}:{{min | number: '2.0' }}:{{sec | number: '2.0' }}</p>
+    <div class="timer-control">
+        <button (click)="start()" *ngIf="sub.closed; else stop" class="timer-control__start">start</button>
+        <ng-template #stop>
+            <button (click)="stopTimer()" class="timer-control__stop">stop</button>
+        </ng-template>
+        <button (click)="reset()">reset</button>
+        <button (click)="wait($event)">wait</button>
+    </div>
+</div>
+
