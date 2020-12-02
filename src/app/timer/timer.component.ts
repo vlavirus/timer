@@ -56,7 +56,7 @@ export class TimerComponent implements DoCheck {
 	}
 
 	reset() {
-		if (!this.sub.closed) {
+		if ( this.timer !== 0) {
 			this.sub.unsubscribe()
 			this.clear()
 			this.start()
