@@ -37,11 +37,6 @@ export class TimerComponent implements DoCheck {
 		this.hour = 0
 	}
 
-	private stop() {
-		this.sub.unsubscribe()
-		this.clear()
-	}
-
 	start() {
 		const timerStream$ = timer(1000, 1000)
 		this.sub = timerStream$.subscribe(() => this.timer += 1)
@@ -52,7 +47,7 @@ export class TimerComponent implements DoCheck {
 		this.clear()
 	}
 
-	wait(e: any) {
+	wait() {
 		if ((Date.now() - this.lastKeyDownTime) <= 300 ) {
 			this.sub.unsubscribe()
 		} else {
@@ -61,8 +56,10 @@ export class TimerComponent implements DoCheck {
 	}
 
 	reset() {
-		this.sub.unsubscribe()
-		this.clear()
-		this.start()
+		if (!this.sub.closed) {
+			this.sub.unsubscribe()
+			this.clear()
+			this.start()
+		}
 	}
 }
